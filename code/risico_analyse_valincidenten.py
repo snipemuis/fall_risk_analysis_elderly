@@ -73,6 +73,7 @@ class RisicoAnalyseValincidenten:
         self.plus65 = LeeftijdsgroepAnalyse(self.data, "65plus")
         self.j65_80 = LeeftijdsgroepAnalyse(self.data, "65_80")
         self.plus80 = LeeftijdsgroepAnalyse(self.data, "80plus")
+        self.totaal_nederland = self._bereken_totaal_nl()
 
     def _load_en_merge(self) -> pd.DataFrame:
         bevolking = load_cbs_bevolking()
@@ -124,6 +125,19 @@ class RisicoAnalyseValincidenten:
             df = self._bereken_voor_groep(df, prefix, pct_col)
             df = geschatte_kosten_vallen(df, prefix, self.risico_ernstig_valincident)
         return df
+
+    def _bereken_totaal_nl(self) -> dict:
+        df = self.data.dropna(subset=["pct_65plus"])
+        exclude = {"gemeentecode", "gemeentenaam", "pct_65plus", "pct_65_80", "pct_80plus"}
+        num_cols = [col for col in df.columns if col not in exclude]
+
+        totaal = {col: int(df[col].sum()) for col in num_cols}
+        totaal["gemeentecode"] = None
+        totaal["gemeentenaam"] = "Nederland"
+        totaal["pct_65plus"] = totaal["n_65plus"] / totaal["inwoners"]
+        totaal["pct_65_80"]  = totaal["n_65_80"]  / totaal["inwoners"]
+        totaal["pct_80plus"] = totaal["n_80plus"]  / totaal["inwoners"]
+        return totaal
 
     def __repr__(self) -> str:
         return (

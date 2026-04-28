@@ -325,6 +325,11 @@
         opt.value = g.gemeentenaam;
         dl.appendChild(opt);
       });
+      const nederland = gemeenten.find(g => g.gemeentenaam === 'Nederland');
+      if (nederland) {
+        document.getElementById('gemeente-search').value = 'Nederland';
+        render(nederland);
+      }
     });
 
   document.getElementById('gemeente-search').addEventListener('input', function () {

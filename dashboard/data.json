@@ -1,6 +1,31 @@
 {
   "gemeenten": [
     {
+      "gemeentecode": null,
+      "gemeentenaam": "Nederland",
+      "inwoners": 18121550,
+      "pct_65plus": 20.8,
+      "pct_65_80": 15.6,
+      "pct_80plus": 5.2,
+      "n_65plus": 3771390,
+      "n_65plus_met_valrisico": 1244554,
+      "n_65plus_at_risk_met_visusproblematiek": 248914,
+      "n_vallen_65plus": 896096,
+      "potentieel_vallen_door_visusproblematiek_65plus": 232314,
+      "n_65_80": 2833728,
+      "n_65_80_met_valrisico": 935135,
+      "n_65_80_at_risk_met_visusproblematiek": 187028,
+      "n_vallen_65_80": 673305,
+      "potentieel_vallen_door_visusproblematiek_65_80": 174562,
+      "n_80plus": 937006,
+      "n_80plus_met_valrisico": 309212,
+      "n_80plus_at_risk_met_visusproblematiek": 61859,
+      "n_vallen_80plus": 222692,
+      "potentieel_vallen_door_visusproblematiek_80plus": 57737,
+      "kosten_ernstige_vallen_65plus": 978411589,
+      "kosten_ernstige_vallen_visusproblematiek_65plus": 50731850
+    },
+    {
       "gemeentecode": 14,
       "gemeentenaam": "Groningen",
       "inwoners": 245250,

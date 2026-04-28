@@ -23,12 +23,8 @@ def safe(val):
         return val
 
 
-analyse = RisicoAnalyseValincidenten()
-df = analyse.data.dropna(subset=["pct_65plus"]).copy()
-
-records = []
-for _, row in df.iterrows():
-    records.append({
+def build_record(row):
+    return {
         "gemeentecode":  safe(row["gemeentecode"]),
         "gemeentenaam":  row["gemeentenaam"],
         "inwoners":      safe(row["inwoners"]),
@@ -52,8 +48,16 @@ for _, row in df.iterrows():
         "potentieel_vallen_door_visusproblematiek_80plus": safe(row["potentieel_vallen_door_visusproblematiek_80plus"]),
         "kosten_ernstige_vallen_65plus":                    safe(row["kosten_ernstige_vallen_65plus"]),
         "kosten_ernstige_vallen_visusproblematiek_65plus":  safe(row["kosten_ernstige_vallen_visusproblematiek_65plus"]),
-    })
+    }
+
+
+analyse = RisicoAnalyseValincidenten()
+df = analyse.data.dropna(subset=["pct_65plus"]).copy()
+
+records = [build_record(analyse.totaal_nederland)]
+for _, row in df.iterrows():
+    records.append(build_record(row))
 
 out = Path(__file__).parent / "data.json"
 out.write_text(json.dumps({"gemeenten": records}, ensure_ascii=False, indent=2))
-print(f"Geschreven: {len(records)} gemeenten → {out}")
+print(f"Geschreven: {len(records)} gemeenten (incl. Nederland) → {out}")
