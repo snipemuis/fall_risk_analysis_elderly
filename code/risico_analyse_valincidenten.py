@@ -133,7 +133,7 @@ class RisicoAnalyseValincidenten:
 
         totaal = {col: int(df[col].sum()) for col in num_cols}
         totaal["gemeentecode"] = None
-        totaal["gemeentenaam"] = "Nederland"
+        totaal["gemeentenaam"] = "Nederland (alle gemeenten)"
         totaal["pct_65plus"] = totaal["n_65plus"] / totaal["inwoners"]
         totaal["pct_65_80"]  = totaal["n_65_80"]  / totaal["inwoners"]
         totaal["pct_80plus"] = totaal["n_80plus"]  / totaal["inwoners"]

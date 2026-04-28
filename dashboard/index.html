@@ -49,7 +49,7 @@
 
     <!-- Kerncijfers -->
     <div class="card">
-      <div class="card-header">Kerncijfers</div>
+      <div class="card-header" id="kerncijfers-header">Kerncijfers</div>
       <div class="card-body p-0">
         <table class="table table-striped mb-0">
           <tbody>
@@ -260,6 +260,7 @@
   function render(g) {
     document.getElementById('placeholder').style.display = 'none';
     document.getElementById('dashboard').style.display = '';
+    document.getElementById('kerncijfers-header').textContent = 'Kerncijfers ' + g.gemeentenaam;
 
     document.getElementById('k-inwoners').textContent = fmt(g.inwoners);
     document.getElementById('k-65plus').textContent   = fmtNPct(g.n_65plus, g.pct_65plus);
@@ -325,11 +326,8 @@
         opt.value = g.gemeentenaam;
         dl.appendChild(opt);
       });
-      const nederland = gemeenten.find(g => g.gemeentenaam === 'Nederland');
-      if (nederland) {
-        document.getElementById('gemeente-search').value = 'Nederland';
-        render(nederland);
-      }
+      const nederland = gemeenten.find(g => g.gemeentenaam === 'Nederland (alle gemeenten)');
+      if (nederland) render(nederland);
     });
 
   document.getElementById('gemeente-search').addEventListener('input', function () {
