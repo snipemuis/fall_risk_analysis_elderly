@@ -1,4 +1,4 @@
-# fall_risk_analysis_elderly
+# fall risk elderly analysis
 
 Analysis of fall risk among elderly (65+) in the Netherlands, including an estimation
 of the number of falls attributable to vision problems.
