@@ -9,8 +9,6 @@ of the number of falls attributable to vision problems.
 - **Scientific literature** — risk factors and epidemiological estimates
 - **NHG standaard valpreventie/risico**
 
-Assumptions and methodological choices are documented in `assumptions.md`.
-
 ## License
 © 2026 M.B. Muijzer. Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 You are free to share and adapt this work for non-commercial purposes, provided appropriate credit is given. Commercial use is not permitted without explicit written permission.
@@ -22,24 +20,16 @@ You are free to share and adapt this work for non-commercial purposes, provided 
 - ernstige_valincidenten = 105000 
 - percentage_severe = 0.10 
 - direct_costs = 1100000000
-- gemiddeld_aantal_vallen = 3.6 
-
-**gemiddeld aantal vallen volgens stevig staan / VeiligheidNL**
+- gemiddeld_aantal_vallen = 3.6 **(gemiddeld aantal vallen volgens stevig staan / VeiligheidNL)**
 
 ### scientific literature and other sources
-
 - percentage_onbekende_visusproblematiek = 0.2 
-- for all fallers OR 1.35, multivariate OR = 1.21
-
-**Risk factors for falls in community-dwelling older people: a systematic review and meta-analysis: Vision and hearing impairment also increased risk, especially vision problems (1.4 for all fallers and 1.6 for recurrent fallers).**
+- OR risk of falls due to vision problems: for all fallers OR 1.35, multivariate OR = 1.21 **(Risk factors for falls in community-dwelling older people: a systematic review and meta-analysis)**
 
 ### berekeningen
 - direct_cost_pp = round(direct_costs / ernstige_valincidenten)
 - risico_ernstig_valincident = ernstige_valincidenten / (populatieNL * - - percentage_ouderenNL * valrisico_incidentie)
-- percentage_sterfgevallen = (17*365) / ernstige_valincidenten
-
-**aantal sterfgevallen (17 per dag van de 0.33 * ouderen met verhoogd valrisico)**
-
+- percentage_sterfgevallen = (17*365) / ernstige_valincidenten **(aantal sterfgevallen (17 per dag van de 0.33 * ouderen met verhoogd valrisico))**
 - Berekening potentieel aantal vallen / potentiële associatie sterfgeval:
 n_vallen_65plus = round(n_65plus_at_risk_met_visusproblematiek * gemiddeld_aantal_vallen)
 - potentieel_vallen_door_visusproblematiek_65plus = round(n_vallen_65plus - n_vallen_65plus / odds_ratio_val_door_visus),
