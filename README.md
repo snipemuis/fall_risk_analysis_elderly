@@ -31,6 +31,6 @@ You are free to share and adapt this work for non-commercial purposes, provided 
 - risico_ernstig_valincident = ernstige_valincidenten / (populatieNL * - - percentage_ouderenNL * valrisico_incidentie)
 - percentage_sterfgevallen = (17*365) / ernstige_valincidenten **(aantal sterfgevallen (17 per dag van de 0.33 * ouderen met verhoogd valrisico))**
 - Berekening potentieel aantal vallen / potentiële associatie sterfgeval:
-n_vallen_65plus = round(n_65plus_at_risk_met_visusproblematiek * gemiddeld_aantal_vallen)
-- potentieel_vallen_door_visusproblematiek_65plus = round(n_vallen_65plus - n_vallen_65plus / odds_ratio_val_door_visus),
-- vallen_visusproblematiek_gerelateerd_aan_potentieel_sterfgeval_65plus =  round(potentieel_vallen_door_visusproblematiek_65plus *  risico_ernstig_valincident * percentage_sterfgevallen), 
+n_vallen_65plus = n_65plus_at_risk_met_visusproblematiek * gemiddeld_aantal_vallen
+- potentieel_vallen_door_visusproblematiek_65plus = n_vallen_65plus - n_vallen_65plus / odds_ratio_val_door_visus,
+- vallen_visusproblematiek_gerelateerd_aan_potentieel_sterfgeval_65plus =  potentieel_vallen_door_visusproblematiek_65plus *  risico_ernstig_valincident * percentage_sterfgevallen) 
